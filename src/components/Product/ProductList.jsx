@@ -25,7 +25,7 @@ function ProductList() {
   };
 
   return (
-    <div className="mt-10">
+    <div className="mt-10 text-center">
       <h1 className="font-medium text-5xl mb-5">Ürünlerimiz</h1>
 
       {/* Buttonların tümü */}
