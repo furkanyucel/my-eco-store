@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ProductItem from "./ProductItem";
 
 import { products } from "../../Data/ProductData";
 
 import Button from "../../UI/Buttons/Button";
+import SearchBar from "../../UI/SearchBar/SearchBar";
 
-
-
-function ProductList() {
+const ProductList = () => {
+  const [searchTerm, setSearchTerm] = useState("");
 
   // state alanı
   const [filteredProducts, setFilteredProducts] = useState(products);
@@ -26,16 +26,18 @@ function ProductList() {
 
   return (
     <div className="mt-10 text-center">
+
       <h1 className="font-medium text-5xl mb-5">Ürünlerimiz</h1>
 
       {/* Buttonların tümü */}
       <Button onClick={() => filterProducts("Hepsi")}>Hepsi</Button>
-      <Button onClick={() => filterProducts("Kişisel Bakım")}>Kişisel Bakım</Button>
+      <Button onClick={() => filterProducts("Kişisel Bakım")}>
+        Kişisel Bakım
+      </Button>
       <Button onClick={() => filterProducts("Mutfak")}>Mutfak</Button>
       <Button onClick={() => filterProducts("Giyim")}>Giyim</Button>
-      
-      <div className="flex justify-center items-center gap-5">
 
+      <div className="flex justify-center items-center gap-5">
         {/* Product Maps */}
         {filteredProducts.map((product) => (
           <ProductItem
@@ -49,6 +51,6 @@ function ProductList() {
       </div>
     </div>
   );
-}
+};
 
 export default ProductList;
